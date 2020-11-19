@@ -1,0 +1,16 @@
+{
+  "name": "eleventy-load-js",
+  "version": "0.0.1",
+  "description": "JavaScript loader for Eleventy using eleventy-load",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/gregives/eleventy-load-js",
+  "author": "Greg Ives",
+  "license": "MIT",
+  "dependencies": {
+    "memfs": "^3.2.0",
+    "webpack": "^5.5.1"
+  }
+}
