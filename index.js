@@ -8,7 +8,7 @@ module.exports = function (_content, options = {}) {
   const compiler = webpack({
     context: path.resolve(this.config.dir.input),
     mode: "production",
-    entry: [this.resource],
+    entry: [this.resourcePath],
     output: {
       path: path.resolve(),
       filename: ENTRY,
@@ -19,8 +19,10 @@ module.exports = function (_content, options = {}) {
 
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {
-      if (err || stats.hasErrors())
+      if (err || stats.hasErrors()) {
         reject(err || new Error(stats.compilation.errors));
+        return;
+      }
 
       resolve(fs.readFileSync(path.resolve(ENTRY)));
     });
