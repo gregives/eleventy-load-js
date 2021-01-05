@@ -4,7 +4,7 @@ const { fs } = require("memfs");
 
 const ENTRY = "main.js";
 
-module.exports = function (_content, options = {}) {
+module.exports = function (_content, options) {
   const context = path.resolve(this.config.inputDir);
   const compiler = webpack({
     context,
@@ -14,6 +14,7 @@ module.exports = function (_content, options = {}) {
       path: path.resolve(),
       filename: ENTRY,
     },
+    ...options,
   });
 
   compiler.outputFileSystem = fs;
