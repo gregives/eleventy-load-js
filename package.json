@@ -1,7 +1,7 @@
 {
   "name": "eleventy-load-js",
   "version": "0.0.1",
-  "description": "JavaScript loader for Eleventy using eleventy-load",
+  "description": "Bundle and minify JavaScript with webpack using eleventy-load",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
