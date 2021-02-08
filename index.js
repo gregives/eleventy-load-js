@@ -5,16 +5,15 @@ const { fs } = require("memfs");
 const ENTRY = "main.js";
 
 module.exports = function (_content, options) {
-  const context = path.resolve(this.config.inputDir);
   const compiler = webpack({
-    context,
+    context: path.resolve(this.config.inputDir),
     mode: "production",
-    entry: [path.resolve(context, this.resourcePath)],
+    entry: [path.resolve(this.config.inputDir, this.resourcePath)],
     output: {
       path: path.resolve(),
       filename: ENTRY,
     },
-    ...options,
+    ...options.webpack,
   });
 
   compiler.outputFileSystem = fs;
