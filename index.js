@@ -4,10 +4,16 @@ const { fs } = require("memfs");
 
 const ENTRY = "main.js";
 
-module.exports = function (_content, options) {
+module.exports = function (_content, _options = {}) {
+  const options = {
+    webpack: {
+      mode: "production",
+    },
+    ..._options,
+  };
+
   const compiler = webpack({
     context: path.resolve(this.config.inputDir),
-    mode: "production",
     entry: [path.resolve(this.config.inputDir, this.resourcePath)],
     output: {
       path: path.resolve(),
