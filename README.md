@@ -9,10 +9,10 @@ Bundle and minify JavaScript with webpack using [eleventy-load](https://github.c
 
 ## Getting Started
 
-Firstly, you'll need to install [eleventy-load](https://github.com/gregives/eleventy-load) (if you haven't already) and eleventy-load-js. You'll probably want to use eleventy-load-js in combination with [eleventy-load-html](https://github.com/gregives/eleventy-load-html), so we'll install that as well.
+Firstly, you'll need to install [eleventy-load](https://github.com/gregives/eleventy-load) (if you haven't already) and eleventy-load-js. You'll probably want to use eleventy-load-js in combination with [eleventy-load-html](https://github.com/gregives/eleventy-load-html) and [eleventy-load-file](https://github.com/gregives/eleventy-load-file), so we'll install those as well. The latter writes the output of eleventy-load-js to a file which will be saved in Eleventy's output directory, which is the behavior you often want for JavaScript.
 
 ```sh
-npm install --save-dev eleventy-load eleventy-load-js eleventy-load-html
+npm install --save-dev eleventy-load eleventy-load-js eleventy-load-html eleventy-load-file
 ```
 
 Then you can set up eleventy-load-js using a rule in your eleventy-load options.
@@ -37,6 +37,9 @@ module.exports = function (eleventyConfig) {
             options: {
               mode: "production",
             },
+          },
+          {
+            loader: require("eleventy-load-file"),
           },
         ],
       },
