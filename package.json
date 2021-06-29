@@ -1,6 +1,6 @@
 {
   "name": "eleventy-load-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bundle and minify JavaScript with webpack using eleventy-load",
   "main": "index.js",
   "scripts": {
